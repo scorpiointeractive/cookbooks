@@ -10,10 +10,14 @@ when "debian","ubuntu"
 when "redhat","centos","oracle","amazon","arch"
   rpaf_url = "http://stderr.net/apache/rpaf/download/mod_rpaf-0.6.tar.gz"
   src_filepath  = "/tmp/mod_rpaf-0.6.tar.gz"
+  src_dir = File.dirname(src_filepath)
+  basename = File.basename(src_filepath)
   
   log "  RPAF Url = #{rpaf_url}"
   log "  Source Path = #{src_filepath}"
- 
+  log "  Source Directory = #{src_dir}"
+  log "  Filename = #{basename}"
+  
   packages = value_for_platform(
     ["centos","redhat","fedora","amazon","scientific","arch"] => {'default' => ['httpd-devel']},
     ["ubuntu","debian"] => {"default" => ['apache2-dev']},
