@@ -41,6 +41,7 @@ recipe            "apache2::mod_setenvif", "Apache module 'setenvif' with config
 recipe            "apache2::mod_ssl", "Apache module 'ssl' with config file, adds port 443 to listen_ports"
 recipe            "apache2::mod_status", "Apache module 'status' with config file"
 recipe            "apache2::mod_xsendfile", "Apache module 'xsendfile'"
+recipe            "apache2::mod_rpaf", "Apache module 'rpaf'"
 
 %w{redhat centos scientific fedora debian ubuntu arch }.each do |os|
   supports os
@@ -196,3 +197,20 @@ attribute "apache/worker/maxrequestsperchild",
   :display_name => "Apache Worker MPM MaxRequestsPerChild",
   :description => "Maximum number of request a child process will handle",
   :default => "0"
+
+attribute "apache/mod_rpaf/enabled",
+  :display_name => "Apache Module RPAF enable",
+  :description => "Enable or disable apache rpaf module",
+  :choice => ["true", "false"],
+  :default => "false"
+
+attribute "apache/mod_rpaf/preserve_hostname",
+  :display_name => "Apache Module RPAF preserve hostname",
+  :description => "Apache rpaf module preserve hostname",
+  :choice => ["true", "false"],
+  :default => "true"
+
+attribute "apache/mod_rpaf/proxies",
+  :display_name => "Apache Module RPAF proxies",
+  :description => "Apache rpaf module proxy list",
+  :default => ""

@@ -102,3 +102,8 @@ default[:apache][:worker][:maxsparethreads] = 192
 default[:apache][:worker][:threadsperchild] = 128
 default[:apache][:worker][:maxrequestsperchild] = 0
 default[:apache][:worker][:serverlimit] = 32
+
+# Mod RPAF
+default[:apache][:mod_rpaf][:enabled] = false
+default[:apache][:mod_rpaf][:preserve_hostname] = true
+default[:apache][:mod_rpaf][:proxies] = ''
