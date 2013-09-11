@@ -34,21 +34,12 @@ when "redhat","centos","oracle","amazon","arch"
   #  backup false
   #end
 
-  bash "get mod_rpaf source" do
+  bash "compile mod_rpaf" do
     cwd ::File.dirname(src_filepath)
     code <<-EOH
       wget #{rpaf_url} && 
       tar zxf #{::File.basename(src_filepath)} -C #{::File.dirname(src_filepath)} &&
       cd mod_rpaf-0.6 && 
-      apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c
-    EOH
-  end
-
-  bash "compile mod_rpaf" do
-    cwd ::File.dirname(src_filepath)
-    code <<-EOH
-      tar zxf #{::File.basename(src_filepath)} -C #{::File.dirname(src_filepath)} &&
-      cd mod_rpaf-0.6 &&
       apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c
     EOH
   end
