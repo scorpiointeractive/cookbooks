@@ -107,3 +107,4 @@ default[:apache][:worker][:serverlimit] = 32
 default[:apache][:mod_rpaf][:enabled] = false
 default[:apache][:mod_rpaf][:preserve_hostname] = true
 default[:apache][:mod_rpaf][:proxies] = ''
+default[:apache][:mod_rpaf][:rpafheader] = 'X-Forwarded-For'
