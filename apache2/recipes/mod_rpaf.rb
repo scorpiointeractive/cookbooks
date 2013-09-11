@@ -28,10 +28,20 @@ when "redhat","centos","oracle","amazon","arch"
     package devpkg
   end
 
-  remote_file rpaf_url do
-    source rpaf_url
-    path src_filepath
-    backup false
+  #remote_file rpaf_url do
+  #  source rpaf_url
+  #  path src_filepath
+  #  backup false
+  #end
+
+  bash "get mod_rpaf source" do
+    cwd ::File.dirname(src_filepath)
+    code <<-EOH
+      wget #{rpaf_url} && 
+      tar zxf #{::File.basename(src_filepath)} -C #{::File.dirname(src_filepath)} &&
+      cd mod_rpaf-0.6 && 
+      apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c
+    EOH
   end
 
   bash "compile mod_rpaf" do
