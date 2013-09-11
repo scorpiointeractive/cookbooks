@@ -214,3 +214,8 @@ attribute "apache/mod_rpaf/proxies",
   :display_name => "Apache Module RPAF proxies",
   :description => "Apache rpaf module proxy list",
   :default => ""
+
+attribute "apache/mod_rpaf/rpafheader",
+  :display_name => "Apache Module RPAF header",
+  :description => "Apache rpaf module header",
+  :default => "X-Forwarded-For"
