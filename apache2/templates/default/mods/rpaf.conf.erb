@@ -3,9 +3,7 @@
 # File left here by Chef, don't modify it directly.
 ##
 
-<IfModule mod_rpaf.c>
-    RPAFenable  <%= node[:apache][:mod_rpaf][:enabled] ? "On" : "Off" %>
-    RPAFsethostname <%= node[:apache][:mod_rpaf][:preserve_hostname] ? "On" : "Off" %>
-    RPAFproxy_ips   <%= Array(node[:apache][:mod_rpaf][:proxies]).join(' ') %>
-    RPAFheader <%= node[:apache][:mod_rpaf][:rpafheader] %>
-</IfModule>
+RPAFenable  <%= node[:apache][:mod_rpaf][:enabled] ? "On" : "Off" %>
+RPAFsethostname <%= node[:apache][:mod_rpaf][:preserve_hostname] ? "On" : "Off" %>
+RPAFproxy_ips   <%= Array(node[:apache][:mod_rpaf][:proxies]).join(' ') %>
+RPAFheader <%= node[:apache][:mod_rpaf][:rpafheader] %>
